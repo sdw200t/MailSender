@@ -51,8 +51,11 @@ namespace MailSender
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SendEndWindow sew = new SendEndWindow();
-            sew.ShowDialog();
+            //SendEndWindow sew = new SendEndWindow();
+            //sew.ShowDialog();
+
+            tabControl.SelectedItem = tabPlanner;
+
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -60,6 +63,16 @@ namespace MailSender
             ErrWindow sew = new ErrWindow();
             sew.lblText.Content = "Невероятная ошибка";
             sew.ShowDialog();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            if (TextBox.Text == "")
+            {
+                ErrWindow sew = new ErrWindow();
+                sew.lblText.Content = "Письмо не заполнено";
+                sew.ShowDialog();
+            }
         }
     }
 }

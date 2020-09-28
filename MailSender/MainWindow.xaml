@@ -6,11 +6,57 @@
         xmlns:local="clr-namespace:MailSender"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Обычное сообщение" HorizontalAlignment="Left" Margin="122,174,0,0" VerticalAlignment="Top" Height="28" Width="128" Click="Button_Click"/>
-        <Button Content="Сообщение с ошибкой" HorizontalAlignment="Left" Margin="298,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.252,-0.375" Height="28" Width="127" Click="Button_Click_1"/>
-        <TextBox x:Name="tbSubject" HorizontalAlignment="Left" Margin="186,41,0,0" Text="Тема письма" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbBody" HorizontalAlignment="Left" Margin="186,83,0,0" Text="Текст письма" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Height="70"/>
-
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл"/>
+            <MenuItem Header="Справка"/>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <ResizeGrip/>
+            </StatusBarItem>
+            <StatusBarItem >
+                <TextBlock Text="Ok"></TextBlock>
+            </StatusBarItem>
+            
+        </StatusBar>
+        <TabControl Name="tabControl">
+            <TabItem Header="Список" >
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top">
+                        <ToolBar Header="Выбрать smtp-server" Band="0">
+                            <ComboBox MaxWidth="160" MinWidth="120">
+                                <ComboBoxItem>smtp.ya.ru</ComboBoxItem>
+                                <ComboBoxItem>smtp.mail.ru</ComboBoxItem>
+                            </ComboBox>
+                        </ToolBar>
+                        <ToolBar Header="Отправитель" Band="1">
+                            
+                        </ToolBar>
+                        <ToolBar Header="Получатель" Band="1">
+                            
+                        </ToolBar>
+                        <ToolBar Header="Перейти в планировщик" Band="2">
+                            <Button x:Name="btnClock" Click="Button_Click">
+                                <Image Source="/clock.png" Height="25"></Image>
+                            </Button>
+                        </ToolBar>
+                        <ToolBar Header="Список адресатов" Band="2">
+                            <Button Content="Кнопка 1"></Button>
+                            <Button Content="Кнопка 2"></Button>
+                            <Button Content="Кнопка 3"></Button>
+                        </ToolBar>
+                    </ToolBarTray>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Планировщик" Name="tabPlanner">
+                <Grid>
+                    <Calendar HorizontalAlignment="Left"></Calendar>
+                    <Button Margin="10,183,615,160" Content="Отправить" Click="Button_Click_2"></Button>
+                    <TextBox Margin="184,10,10,245" x:Name="TextBox"></TextBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+    </DockPanel>
 </Window>
