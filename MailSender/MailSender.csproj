@@ -11,6 +11,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EmailSendServiceClass\EmailSendServiceClass.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="EmailSendServiceClass">
+      <HintPath>..\EmailSendServiceClass\bin\Release\netstandard2.0\EmailSendServiceClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="clock.png" />
   </ItemGroup>
 
